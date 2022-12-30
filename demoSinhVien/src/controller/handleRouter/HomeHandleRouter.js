@@ -19,7 +19,7 @@ class HomeHandleRouter {
                             <td><a href="/delete/${student.id}"><button>Delete</button></td>
                         </tr>`
         })
-        homeHtml = homeHtml.replace('{products}', tbody);
+        homeHtml = homeHtml.replace('{students}', tbody);
         return homeHtml;
     }
 
@@ -29,8 +29,8 @@ class HomeHandleRouter {
                 if (err1) {
                     console.log(err1.message)
                 } else {
-                    let products = await studentService.findAll();
-                    homeHtml = HomeHandleRouter.getHomeHtml(homeHtml, products);
+                    let students = await studentService.findAll();
+                    homeHtml = HomeHandleRouter.getHomeHtml(homeHtml, students);
                     res.writeHead(200, 'text/html');
                     res.write(homeHtml);
                     res.end();
@@ -91,8 +91,8 @@ class HomeHandleRouter {
                 if (err) {
                     console.log(err)
                 } else {
-                    const product = qs.parse(data1);
-                    const mess = await studentService.save(product);
+                    const student = qs.parse(data1);
+                    const mess = await studentService.save(student);
                     res.writeHead(301, {location: '/home'});
                     res.end();
                 }
