@@ -1,8 +1,8 @@
-const fs = require('fs');
+const fs2 = require('fs');
 
 class NotFound{
     handleNotFound(req,res){
-        fs.readFile('./views/err/notFound.html',"utf-8",(err,notFoundHtml)=>{
+        fs2.readFile('./views/err/notFound.html',"utf-8",(err,notFoundHtml)=>{
             if(err){
                 console.log(err.message)
             }else {

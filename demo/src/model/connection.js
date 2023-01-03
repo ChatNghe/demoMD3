@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql2 = require('mysql');
 
 class Connection {
     configToMysql = {
@@ -10,7 +10,7 @@ class Connection {
     }
 
     getConnection() {
-        return mysql.createConnection(this.configToMysql)
+        return mysql2.createConnection(this.configToMysql)
     }
 
     connected() {
